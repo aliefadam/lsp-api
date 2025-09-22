@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             "name" => "Admnistrator",
             "email" => "lsp.api.iapa@gmail.com",
-            "password" => bcrypt("123"),
+            "password" => bcrypt("admin12312390"),
         ]);
     }
 }
