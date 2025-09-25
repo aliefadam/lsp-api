@@ -28,7 +28,7 @@
                     <label for="place" class="block mb-2 text-sm font-medium text-gray-900 ">
                         Lokasi Acara
                     </label>
-                    <select id="place" name="place"
+                    {{-- <select id="place" name="place"
                         class="select-2-dropdown bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                         <option selected>-- Pilih--</option>
                         @foreach ($tuks as $tuk)
@@ -36,7 +36,9 @@
                                 {{ $tuk->name }} - {{ $tuk->address }}
                             </option>
                         @endforeach
-                    </select>
+                    </select> --}}
+                    <textarea id="place" name="place" rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-orange-500 focus:border-orange-500">{{ $event->place }}</textarea>
                 </div>
                 <div class="mb-5">
                     <label for="date" class="block mb-2 text-sm font-medium text-gray-900 ">
@@ -54,14 +56,14 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                         required />
                 </div>
-                <div class="mb-5">
+                {{-- <div class="mb-5">
                     <label for="end_time" class="block mb-2 text-sm font-medium text-gray-900 ">
                         Jam Selesai
                     </label>
                     <input type="time" id="end_time" name="end_time" value="{{ $event->end_time }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                         required />
-                </div>
+                </div> --}}
                 <div class="mb-5">
                     <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Deskripsi Acara
@@ -82,8 +84,7 @@
                                 <input @checked(in_array($scheme->id, $selectedSchemes)) id="scheme-{{ $loop->iteration }}" type="checkbox"
                                     value="{{ $scheme->id }}" name="schemes[]"
                                     class="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 focus:ring-orange-500">
-                                <label for="scheme-{{ $loop->iteration }}"
-                                    class="w-full py-2.5 ms-2 text-sm text-gray-700">
+                                <label for="scheme-{{ $loop->iteration }}" class="w-full py-2.5 ms-2 text-sm text-gray-700">
                                     {{ $scheme->name }}
                                 </label>
                             </div>

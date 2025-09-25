@@ -56,7 +56,7 @@
                     </div>
                     <div class="">
                         <h1 class="text-base poppins-medium text-orange-500">Dokumen Detail Skema</h1>
-                        <div class="p-4 bg-red-600 text-white rounded-md mb-3 flex justify-between text-sm mt-3 w-1/3">
+                        <div class="p-4 bg-red-600 text-white rounded-md mb-3 flex gap-5 text-sm mt-3 w-fit">
                             <div class="flex items-center gap-2">
                                 <i class="fa-solid fa-file-pdf"></i>
                                 <span>{{ $scheme->doc }}</span>

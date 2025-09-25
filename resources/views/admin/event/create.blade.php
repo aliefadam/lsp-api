@@ -27,7 +27,7 @@
                     <label for="place" class="block mb-2 text-sm font-medium text-gray-900 ">
                         Lokasi Acara
                     </label>
-                    <select id="place" name="place"
+                    {{-- <select id="place" name="place"
                         class="select-2-dropdown bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500">
                         <option selected>-- Pilih--</option>
                         @foreach ($tuks as $tuk)
@@ -35,7 +35,9 @@
                                 {{ $tuk->name }} - {{ $tuk->address }}
                             </option>
                         @endforeach
-                    </select>
+                    </select> --}}
+                    <textarea id="place" name="place" rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-orange-500 focus:border-orange-500"></textarea>
                 </div>
                 <div class="mb-5">
                     <label for="date" class="block mb-2 text-sm font-medium text-gray-900 ">
@@ -53,14 +55,14 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                         required />
                 </div>
-                <div class="mb-5">
+                {{-- <div class="mb-5">
                     <label for="end_time" class="block mb-2 text-sm font-medium text-gray-900 ">
                         Jam Selesai
                     </label>
                     <input type="time" id="end_time" name="end_time"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
                         required />
-                </div>
+                </div> --}}
                 <div class="mb-5">
                     <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Deskripsi Acara

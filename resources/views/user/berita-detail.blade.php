@@ -25,6 +25,19 @@
                 <div class="mt-5">
                     <img class="rounded-md shadow-md" src="/uploads/flyer/{{ $berita->flyer }}" alt="">
                 </div>
+                <div class="">
+                    <h1 class="text-base poppins-medium text-orange-500">Flyer</h1>
+                    <div class="p-4 bg-red-600 text-white rounded-md mb-3 flex gap-5 text-sm mt-3 w-fit">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>{{ $berita->flyer }}</span>
+                        </div>
+                        <a href="/uploads/flyer/{{ $berita->flyer }}" target="_blank" class="flex items-center gap-2">
+                            <i class="fa-solid fa-up-right-from-square"></i>
+                            <span>Buka</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="col-span-1">
                 <h1 class="text-xl poppins-medium border-b pb-3 border-gray-400">Berita Lainnya</h1>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("place");
             $table->date("date");
             $table->time("start_time");
-            $table->time("end_time");
+            // $table->time("end_time");
             $table->text("desc")->nullable();
             $table->boolean("is_active");
             $table->timestamps();

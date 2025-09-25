@@ -43,7 +43,7 @@
                             <td>{{ $event->name }}</td>
                             <td>{{ Str::limit($event->place, 50, '...') }}</td>
                             <td>{{ $event->date }}</td>
-                            <td>{{ $event->start_time }} - {{ $event->end_time }}</td>
+                            <td>{{ Carbon\Carbon::parse($event->start_time)->format('H:i') }} WIB</td>
                             {{-- <td>
                                 @if ($event->is_active)
                                     <span

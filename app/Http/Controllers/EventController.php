@@ -43,7 +43,7 @@ class EventController extends Controller
                 "place" => $request->place,
                 "date" => $request->date,
                 "start_time" => $request->start_time,
-                "end_time" => $request->end_time,
+                // "end_time" => $request->end_time,
                 "desc" => $request->desc,
                 "is_active" => true,
             ]);
@@ -104,7 +104,7 @@ class EventController extends Controller
                 "place" => $request->place,
                 "date" => $request->date,
                 "start_time" => $request->start_time,
-                "end_time" => $request->end_time,
+                // "end_time" => $request->end_time,
                 "desc" => $request->desc,
                 "is_active" => true,
             ]);
