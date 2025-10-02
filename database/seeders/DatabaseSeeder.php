@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             SchemeSeeder::class,
             EventSeeder::class,
             ScheduleSeeder::class,
+            ContactSeeder::class,
             // EventResponseSeeder::class,
         ]);
     }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Contact;
 use App\Models\Menu;
+use App\Models\Sosmed;
 use Illuminate\Support\Facades\Auth;
 
 if (!function_exists("getMenuSidebar")) {
@@ -25,5 +27,19 @@ if (!function_exists("format_rupiah")) {
     {
         $formattedNumber = number_format($number, 0, ',', '.');
         return 'Rp ' . $formattedNumber;
+    }
+}
+
+if (!function_exists("getSosmed")) {
+    function getSosmed()
+    {
+        return Sosmed::first();
+    }
+}
+
+if (!function_exists("getContact")) {
+    function getContact()
+    {
+        return Contact::first();
     }
 }

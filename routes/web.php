@@ -3,6 +3,7 @@
 use App\Http\Controllers\AsesorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventResponseController;
 use App\Http\Controllers\GalleryController;
@@ -11,10 +12,12 @@ use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SchemeController;
+use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\SuratPendukungController;
 use App\Http\Controllers\SusunanPengurusController;
 use App\Http\Controllers\TUKController;
 use App\Http\Controllers\VisiMisiController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", [PageController::class, "index"])->name("home");
@@ -78,6 +81,16 @@ Route::middleware("auth")->group(function () {
         Route::prefix("profil-perusahaan")->group(function () {
             Route::get("/", [ProfilPerusahaanController::class, "index"])->name("admin.profil-perusahaan.index");
             Route::put("/", [ProfilPerusahaanController::class, "update"])->name("admin.profil-perusahaan.update");
+        });
+
+        Route::prefix("sosmed")->group(function () {
+            Route::get("/", [SosmedController::class, "index"])->name("admin.sosmed.index");
+            Route::put("/", [SosmedController::class, "update"])->name("admin.sosmed.update");
+        });
+
+        Route::prefix("contact")->group(function () {
+            Route::get("/", [ContactController::class, "index"])->name("admin.contact.index");
+            Route::put("/", [ContactController::class, "update"])->name("admin.contact.update");
         });
 
         Route::prefix("susunan-pengurus")->group(function () {

@@ -109,8 +109,8 @@
 
 @section('script')
     <script>
-        $(".btn-delete").click(deleteEvent);
-        $(".btn-show-detail").click(showDetail);
+        $(document).on("click", ".btn-delete", deleteEvent)
+        $(document).on("click", ".btn-show-detail", showDetail)
 
         function showDetail() {
             const id = $(this).data("id");

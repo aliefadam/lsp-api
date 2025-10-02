@@ -327,8 +327,8 @@
             });
         });
 
-        $(".btn-show-detail").click(showDetail);
-        $(".btn-get-surat-pendukung").click(getSuratPendukung);
+        $(document).on("click", ".btn-show-detail", showDetail);
+        $(document).on("click", ".btn-get-surat-pendukung", getSuratPendukung);
 
         function showDetail() {
             const id = $(this).data("id");

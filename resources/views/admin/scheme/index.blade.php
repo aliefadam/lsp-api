@@ -60,7 +60,7 @@
 
 @section('script')
     <script>
-        $(".btn-delete").click(deleteEvent);
+        $(document).on("click", ".btn-delete", deleteEvent)
 
         function deleteEvent() {
             const id = $(this).data("id");

@@ -54,12 +54,6 @@ class MenuSeeder extends Seeder
             "route" => "admin.scheme.index",
             "icon" => "fa-regular fa-award",
         ]);
-        // MenuDetail::create([
-        //     "menu_id" => $newMenu->id,
-        //     "name" => "jadwal",
-        //     "route" => "admin.schedule.index",
-        //     "icon" => "fa-regular fa-calendar",
-        // ]);
 
         $newMenu = Menu::create([
             "role" => "admin",
@@ -98,6 +92,23 @@ class MenuSeeder extends Seeder
             "name" => "berita",
             "route" => "admin.berita.index",
             "icon" => "fa-regular fa-newspaper",
+        ]);
+
+        $newMenu = Menu::create([
+            "role" => "admin",
+            "name" => "footer",
+        ]);
+        MenuDetail::create([
+            "menu_id" => $newMenu->id,
+            "name" => "sosmed",
+            "route" => "admin.sosmed.index",
+            "icon" => "fa-brands fa-instagram",
+        ]);
+        MenuDetail::create([
+            "menu_id" => $newMenu->id,
+            "name" => "kontak",
+            "route" => "admin.contact.index",
+            "icon" => "fa-regular fa-address-book",
         ]);
     }
 }
