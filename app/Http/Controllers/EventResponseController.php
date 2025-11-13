@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Event;
 use App\Models\EventResponse;
 use App\Models\Schedule;
@@ -92,9 +93,12 @@ class EventResponseController extends Controller
     public function done($slug)
     {
         $event = Event::where('slug', $slug)->first();
+        $contact = Contact::first();
         return view('user.pendaftaran.done', [
             "title" => "Berhasil Mendaftar",
-            "event" => $event
+            "event" => $event,
+            "phone" => json_decode($contact->contact_after_registration)->phone,
+            "name" => json_decode($contact->contact_after_registration)->name
         ]);
     }
 

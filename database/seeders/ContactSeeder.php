@@ -17,6 +17,10 @@ class ContactSeeder extends Seeder
             "address" => "Jl. Pd. Benowo Indah No.1-3, Babat Jerawat, Kec. Pakal, Surabaya, Jawa Timur 60197",
             "link_gmap" => "https://maps.app.goo.gl/3SzxexWQdWoVZz4A8",
             "phone" => "62895364711840",
+            "contact_after_registration" => json_encode([
+                "phone" => "6281322113049",
+                "name" => "Shiva",
+            ]),
             "email" => "lsp.api.iapa@gmail.com",
         ]);
     }

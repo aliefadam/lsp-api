@@ -24,6 +24,10 @@ class ContactController extends Controller
             $contact->update([
                 "address" => $request->address,
                 "phone" => $request->phone,
+                "contact_after_registration" => json_encode([
+                    "phone" => $request->phone_after_registration,
+                    "name" => $request->name_after_registration,
+                ]),
                 "email" => $request->email,
             ]);
             DB::commit();

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text("address");
             $table->text("link_gmap");
             $table->string("phone");
+            $table->string("contact_after_registration");
             $table->string("email");
             $table->timestamps();
         });

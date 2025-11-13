@@ -37,6 +37,21 @@
                     <input type="email" id="email" name="email" value="{{ $contact->email }}" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
                 </div>
+                <div class="mb-5">
+                    <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 ">
+                        Kontak Setelah Pendaftaran Sertifikasi
+                    </label>
+                    <div class="flex gap-3 items-center">
+                        <input type="text" id="phone" name="phone_after_registration"
+                            value="{{ json_decode($contact->contact_after_registration)?->phone }}" required
+                            placeholder="No. Telephone"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
+                        <input type="text" id="phone" name="name_after_registration"
+                            value="{{ json_decode($contact->contact_after_registration)?->name }}" required
+                            placeholder="Nama"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
+                    </div>
+                </div>
                 <div class="flex justify-end">
                     <button type="submit"
                         class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">
