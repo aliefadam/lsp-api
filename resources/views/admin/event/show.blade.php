@@ -168,6 +168,10 @@
                                         class="text-orange-600 btn-get-surat-pendukung bg-white hover:bg-gray-50 border border-orange-600 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-xs px-4 py-2.5">
                                         <i class="fa-regular fa-arrow-up-from-bracket mr-1"></i> Kirim E-Sertifikat
                                     </button>
+                                    <button type="button" data-response-id="{{ $response->id }}"
+                                        class="btn-delete text-red-600 btn-get-surat-pendukung bg-white hover:bg-red-600 hover:text-white border border-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xs px-4 py-2.5">
+                                        <i class="fa-regular fa-trash mr-1"></i> Hapus Peserta
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -375,6 +379,44 @@
                     $("#container-modal-sertifikat").html(response.html);
                 }
             })
+        }
+
+        $(document).on("click", ".btn-delete", deleteResponse)
+
+        function deleteResponse() {
+            const id = $(this).data("response-id");
+
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Aksi ini tidak dapat dibatalkan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, yakin!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: `{{ route('admin.event.response.destroy', ':id') }}`.replace(':id', id),
+                        type: 'DELETE',
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                        },
+                        beforeSend: function() {
+                            Swal.fire({
+                                title: 'Loading',
+                                text: 'Please wait...',
+                                didOpen: () => {
+                                    Swal.showLoading()
+                                }
+                            });
+                        },
+                        success: function(data) {
+                            location.reload();
+                        },
+                    });
+                }
+            });
         }
     </script>
 @endsection

@@ -131,6 +131,10 @@ Route::middleware("auth")->group(function () {
             Route::put("/update/{id}", [EventController::class, "update"])->name("admin.event.update");
             Route::delete("/destroy/{id}", [EventController::class, "destroy"])->name("admin.event.destroy");
             Route::post("/send-notification", [EventController::class, "send_notification"])->name("admin.event.send-notification");
+
+            Route::prefix("response")->group(function () {
+                Route::delete("/destroy/{id}", [EventResponseController::class, "destroy"])->name("admin.event.response.destroy");
+            });
         });
 
         Route::prefix("surat-pendukung")->group(function () {

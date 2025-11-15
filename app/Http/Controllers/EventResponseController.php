@@ -80,6 +80,32 @@ class EventResponseController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        try {
+            $response = EventResponse::find($id);
+            $response->delete();
+
+            session()->flash("notification", [
+                "icon" => "success",
+                "title" => "Sukses",
+                "text" => "Peserta Berhasil dihapus",
+            ]);
+            return response()->json([
+                "success" => true,
+            ]);
+        } catch (\Exception $e) {
+            session()->flash("notification", [
+                "icon" => "error",
+                "title" => "Gagal",
+                "text" => $e->getMessage(),
+            ]);
+            return response()->json([
+                "success" => false,
+            ]);
+        }
+    }
+
     public function show($id)
     {
         $participant = EventResponse::find($id);

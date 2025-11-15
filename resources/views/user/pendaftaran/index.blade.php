@@ -157,7 +157,8 @@
                 </div>
                 <div>
                     <label for="instansi_pengusul" class="block mb-2 text-sm font-medium text-orange-600">
-                        Instansi Pengusul (Jika ada)
+                        Asal Instansi
+                        {{-- Instansi Pengusul (Jika ada) --}}
                     </label>
                     <input type="text" id="instansi_pengusul" name="instansi_pengusul"
                         value="{{ old('instansi_pengusul') }}"
