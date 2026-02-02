@@ -9,6 +9,7 @@ use App\Http\Controllers\EventResponseController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\PopupController;
 use App\Http\Controllers\ProfilPerusahaanController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SchemeController;
@@ -101,6 +102,12 @@ Route::middleware("auth")->group(function () {
         Route::prefix("visi-misi")->group(function () {
             Route::get("/", [VisiMisiController::class, "index"])->name("admin.visi-misi.index");
             Route::put("/", [VisiMisiController::class, "update"])->name("admin.visi-misi.update");
+        });
+
+        Route::prefix("popup")->group(function () {
+            Route::get("/", [PopupController::class, "index"])->name("admin.popup.index");
+            Route::put("/", [PopupController::class, "update"])->name("admin.popup.update");
+            Route::get("/destroy", [PopupController::class, "destroy"])->name("admin.popup.destroy");
         });
 
         Route::prefix("scheme")->group(function () {

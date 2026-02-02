@@ -233,4 +233,73 @@
             </div>
         </div>
     </section>
+
+
+    {{-- Pop up --}}
+    @if ($popup)
+        <div class="fixed top-0 left-0 w-full h-screen bg-black/60 z-10 hidden justify-center items-center"
+            id="popup-brosur">
+            <img id="preview-brosur"
+                class="h-[80%] object-cover rounded-md cursor-pointer hover:scale-105 duration-200 shadow-xl"
+                src="/imgs/example-brosur.jpg" alt="">
+
+            <button id="btn-close-popup"
+                class="absolute top-5 right-5 cursor-pointer bg-red-500 hover:bg-red-600 py-2 px-3 rounded-md text-white text-xl hover:text-gray-300">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    @endif
+    {{-- End Pop up --}}
+@endsection
+
+@section('script')
+    <script>
+        const POPUP_KEY = 'home_popup_shown';
+        const ONE_HOUR = 60 * 60 * 1000;
+
+        function shouldShowPopup() {
+            const data = localStorage.getItem(POPUP_KEY);
+
+            if (!data) return true;
+
+            const parsed = JSON.parse(data);
+            return Date.now() > parsed.expiry;
+        }
+
+        function markPopupAsShown() {
+            localStorage.setItem(
+                POPUP_KEY,
+                JSON.stringify({
+                    expiry: Date.now() + ONE_HOUR
+                })
+            );
+        }
+
+        $("#preview-brosur").click(function() {
+            window.location.href = "{{ route('pendaftaran.create') }}";
+        });
+
+        $("#btn-close-popup").click(function() {
+            closePopup();
+        });
+
+        $("#popup-brosur").click(function() {
+            closePopup();
+        });
+
+        function showPopup() {
+            $("#popup-brosur").addClass("flex").removeClass("hidden");
+        }
+
+        function closePopup() {
+            $("#popup-brosur").addClass("hidden").removeClass("flex");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // if (shouldShowPopup()) {
+            showPopup();
+            markPopupAsShown();
+            // }
+        });
+    </script>
 @endsection

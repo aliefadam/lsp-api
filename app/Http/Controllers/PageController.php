@@ -7,6 +7,7 @@ use App\Models\Berita;
 use App\Models\Event;
 use App\Models\EventResponse;
 use App\Models\Gallery;
+use App\Models\Popup;
 use App\Models\ProfilPerusahaan;
 use App\Models\Scheme;
 use App\Models\SuratPendukung;
@@ -25,6 +26,7 @@ class PageController extends Controller
             "profil_perusahaan" => ProfilPerusahaan::first(),
             "susunan_pengurus" => SusunanPengurus::first(),
             "visi_misi" => VisiMisi::first(),
+            "popup" => Popup::first(),
         ]);
     }
 

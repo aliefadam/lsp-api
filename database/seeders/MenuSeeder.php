@@ -37,7 +37,12 @@ class MenuSeeder extends Seeder
             "route" => "admin.visi-misi.index",
             "icon" => "fa-regular fa-bullseye-pointer",
         ]);
-
+        MenuDetail::create([
+            "menu_id" => $newMenu->id,
+            "name" => "Popup Brosur",
+            "route" => "admin.popup.index",
+            "icon" => "fa-regular fa-memo",
+        ]);
         $newMenu = Menu::create([
             "role" => "admin",
             "name" => "sertifikasi",
