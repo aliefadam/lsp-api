@@ -241,7 +241,7 @@
             id="popup-brosur">
             <img id="preview-brosur"
                 class="h-[80%] object-cover rounded-md cursor-pointer hover:scale-105 duration-200 shadow-xl"
-                src="/imgs/example-brosur.jpg" alt="">
+                src="/uploads/{{ $popup->image }}" alt="">
 
             <button id="btn-close-popup"
                 class="absolute top-5 right-5 cursor-pointer bg-red-500 hover:bg-red-600 py-2 px-3 rounded-md text-white text-xl hover:text-gray-300">
