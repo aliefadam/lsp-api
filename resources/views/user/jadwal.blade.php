@@ -10,9 +10,9 @@
     <main class="px-10 py-10 min-h-dvh">
         <div class="grid grid-cols-4 gap-10">
             @foreach ($events as $event)
-                <div class="rounded-md shadow-md duration-200 overflow-hidden relative">
-                    <div class="p-5 bg-white">
-                        <h1 class="poppins-medium h-[45px]">{{ $event->name }}</h1>
+                <div class="rounded-md shadow-md duration-200 overflow-hidden relative pt-5 px-5 bg-white pb-20">
+                    <div class="">
+                        <h1 class="poppins-medium">{{ $event->name }}</h1>
                         <div class="flex items-center gap-3 text-sm text-gray-600 mt-3">
                             <i class="fa-solid fa-location-dot"></i>
                             <span>{{ Str::limit($event->place, 30, '...') }}</span>
@@ -27,7 +27,7 @@
                                 {{ Carbon\Carbon::parse($event->start_time)->format('H:i') }} WIB
                             </span>
                         </div>
-                        <div class="mt-5 flex gap-3">
+                        <div class="mt-5 flex gap-3 absolute bottom-5">
                             <button type="submit" data-modal-target="detail-modal" data-modal-toggle="detail-modal"
                                 data-id="{{ $event->id }}"
                                 class="btn-show-detail cursor-pointer w-full text-orange-600 bg-white border border-orange-600 hover:bg-orange-50 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">
