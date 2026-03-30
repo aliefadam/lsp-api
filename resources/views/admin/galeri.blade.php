@@ -16,7 +16,7 @@
             <div class="relative">
                 <button type="button" data-id="{{ $gallery->id }}"
                     class="btn-delete absolute left-3 top-3 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3.5 py-2.5">
-                    <i class="fa-regular fa-trash scale-110"></i>
+                    <i class="fa-solid fa-trash scale-110"></i>
                 </button>
 
                 <img src="/uploads/gallery/{{ $gallery->name }}" class="w-full h-[200px] object-cover rounded-md shadow-md"

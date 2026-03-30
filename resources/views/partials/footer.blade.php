@@ -45,20 +45,20 @@
         <h1 class="text-orange-700 poppins-semibold">Kontak</h1>
         <div class="flex flex-col mt-4 gap-4">
             <div class="flex gap-3">
-                <i class="fa-regular translate-y-1 fa-location-dot text-orange-500"></i>
+                <i class="fa-solid translate-y-1 fa-location-dot text-orange-500"></i>
                 <a href="{{ getContact()->link_gmap }}" target="_blank"
                     class="text-sm text-orange-500 hover:scale-105 duration-200">
                     {{ getContact()->address }}
                 </a>
             </div>
             <div class="flex gap-3">
-                <i class="fa-regular translate-y-1 fa-phone text-orange-500"></i>
+                <i class="fa-solid translate-y-1 fa-phone text-orange-500"></i>
                 <a href="tel:+{{ getContact()->phone }}" class="text-sm text-orange-500 hover:scale-105 duration-200">
                     +{{ getContact()->phone }}
                 </a>
             </div>
             <div class="flex gap-3">
-                <i class="fa-regular translate-y-1 fa-envelope text-orange-500"></i>
+                <i class="fa-solid translate-y-1 fa-envelope text-orange-500"></i>
                 <a href="mailto:{{ getContact()->email }}" class="text-sm text-orange-500 hover:scale-105 duration-200">
                     {{ getContact()->email }}
                 </a>

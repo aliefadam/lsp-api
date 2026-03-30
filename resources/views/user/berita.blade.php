@@ -16,7 +16,7 @@
                         class="w-full h-[200px] object-cover">
                     <div class="p-5 bg-white">
                         <div class="flex justify-between items-center text-xs text-gray-600 mb-2">
-                            <span><i class="fa-regular fa-eye"></i> {{ $berita->views }} Views </span>
+                            <span><i class="fa-solid fa-eye"></i> {{ $berita->views }} Views </span>
                             <span>{{ $berita->created_at->translatedFormat('l, d-m-Y') }}</span>
                         </div>
                         <h1 class="poppins-medium">
@@ -24,7 +24,7 @@
                         </h1>
                         <a href="{{ route('berita.detail', $berita->slug) }}" class="block mt-5 text-sm text-orange-700">
                             Lihat Detail
-                            <i class="fa-regular fa-arrow-right"></i>
+                            <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>

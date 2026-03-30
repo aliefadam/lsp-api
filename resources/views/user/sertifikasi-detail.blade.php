@@ -12,17 +12,17 @@
     <main class="px-10 py-10 min-h-dvh bg-gray-50">
         {{-- <div class="grid grid-cols-3 gap-10">
             <div class="bg-white shadow-sm rounded-sm p-5">
-                <i class="fa-regular fa-timer p-4 bg-orange-100 text-orange-700 rounded-lg"></i>
+                <i class="fa-solid fa-timer p-4 bg-orange-100 text-orange-700 rounded-lg"></i>
                 <p class="mt-3">Durasi Program</p>
                 <h1 class="text-lg poppins-medium text-orange-600">6 Bulan</h1>
             </div>
             <div class="bg-white shadow-sm rounded-sm p-5">
-                <i class="fa-regular fa-circle-dollar p-4 bg-emerald-100 text-emerald-700 rounded-lg"></i>
+                <i class="fa-solid fa-circle-dollar p-4 bg-emerald-100 text-emerald-700 rounded-lg"></i>
                 <p class="mt-3">Biaya</p>
                 <h1 class="text-lg poppins-medium text-orange-600">Rp. 5,000,000</h1>
             </div>
             <div class="bg-white shadow-sm rounded-sm p-5">
-                <i class="fa-regular fa-calendar-check p-4 bg-amber-100 text-amber-700 rounded-lg"></i>
+                <i class="fa-solid fa-calendar-check p-4 bg-amber-100 text-amber-700 rounded-lg"></i>
                 <p class="mt-3">Jadwal Terdekat</p>
                 <h1 class="text-lg poppins-medium text-orange-600">15 September 2025</h1>
             </div>

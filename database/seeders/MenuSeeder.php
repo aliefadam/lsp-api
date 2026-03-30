@@ -23,25 +23,25 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "profil perusahaan",
             "route" => "admin.profil-perusahaan.index",
-            "icon" => "fa-regular fa-building-user",
+            "icon" => "fa-solid fa-building-user",
         ]);
         MenuDetail::create([
             "menu_id" => $newMenu->id,
             "name" => "susunan pengurus",
             "route" => "admin.susunan-pengurus.index",
-            "icon" => "fa-regular fa-sitemap",
+            "icon" => "fa-solid fa-sitemap",
         ]);
         MenuDetail::create([
             "menu_id" => $newMenu->id,
             "name" => "visi & misi",
             "route" => "admin.visi-misi.index",
-            "icon" => "fa-regular fa-bullseye-pointer",
+            "icon" => "fa-solid fa-bars-staggered",
         ]);
         MenuDetail::create([
             "menu_id" => $newMenu->id,
             "name" => "Popup Brosur",
             "route" => "admin.popup.index",
-            "icon" => "fa-regular fa-memo",
+            "icon" => "fa-solid fa-note-sticky",
         ]);
         $newMenu = Menu::create([
             "role" => "admin",
@@ -51,13 +51,13 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "acara",
             "route" => "admin.event.index",
-            "icon" => "fa-regular fa-users-rectangle",
+            "icon" => "fa-solid fa-users-rectangle",
         ]);
         MenuDetail::create([
             "menu_id" => $newMenu->id,
             "name" => "skema",
             "route" => "admin.scheme.index",
-            "icon" => "fa-regular fa-award",
+            "icon" => "fa-solid fa-award",
         ]);
 
         $newMenu = Menu::create([
@@ -68,13 +68,13 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "TUK",
             "route" => "admin.tuk.index",
-            "icon" => "fa-regular fa-location-dot",
+            "icon" => "fa-solid fa-location-dot",
         ]);
         MenuDetail::create([
             "menu_id" => $newMenu->id,
             "name" => "asesor",
             "route" => "admin.asesor.index",
-            "icon" => "fa-regular fa-users",
+            "icon" => "fa-solid fa-users",
         ]);
 
         $newMenu = Menu::create([
@@ -85,7 +85,7 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "galeri",
             "route" => "admin.galeri.index",
-            "icon" => "fa-regular fa-image",
+            "icon" => "fa-solid fa-image",
         ]);
 
         $newMenu = Menu::create([
@@ -96,7 +96,7 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "berita",
             "route" => "admin.berita.index",
-            "icon" => "fa-regular fa-newspaper",
+            "icon" => "fa-solid fa-newspaper",
         ]);
 
         $newMenu = Menu::create([
@@ -113,7 +113,7 @@ class MenuSeeder extends Seeder
             "menu_id" => $newMenu->id,
             "name" => "kontak",
             "route" => "admin.contact.index",
-            "icon" => "fa-regular fa-address-book",
+            "icon" => "fa-solid fa-address-book",
         ]);
     }
 }

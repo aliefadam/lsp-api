@@ -50,7 +50,7 @@
                         class="text-sm text-blue-800 hover:text-blue-900">{{ url("/sertifikasi/{$event->url}") }}</a>
                     <button type="button" id="copy-link-pendaftaran" data-copy="{{ url("/sertifikasi/{$event->url}") }}"
                         class="text-white w-fit bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2.5">
-                        <i class="fa-regular fa-copy"></i>
+                        <i class="fa-solid fa-copy"></i>
                     </button>
                 </div>
             </div> --}}
@@ -62,7 +62,7 @@
                     <button type="button" id="copy-link-upload"
                         data-copy="{{ url("/sertifikasi/upload-surat-pendukung/{$event->slug}") }}"
                         class="text-white w-fit bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2.5">
-                        <i class="fa-regular fa-copy"></i>
+                        <i class="fa-solid fa-copy"></i>
                     </button>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                 <h1 class="text-base poppins-medium text-orange-500">{{ $event->response->count() }} Peserta Terdaftar</h1>
                 <button type="button" data-modal-target="pengumuman-modal" data-modal-toggle="pengumuman-modal"
                     class="text-blue-800 h-fit bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">
-                    <i class="fa-regular fa-bullhorn mr-1"></i>
+                    <i class="fa-solid fa-bullhorn mr-1"></i>
                     Kirim Pengumuman
                 </button>
             </div>
@@ -160,17 +160,17 @@
                                     <button type="button" data-modal-target="detail-modal" data-modal-toggle="detail-modal"
                                         data-id="{{ $response->id }}"
                                         class="text-orange-600 btn-show-detail bg-white hover:bg-gray-50 border border-orange-600 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-xs px-4 py-2.5">
-                                        <i class="fa-regular fa-info-circle mr-1"></i> Detail
+                                        <i class="fa-solid fa-info-circle mr-1"></i> Detail
                                     </button>
                                     <button type="button" data-modal-target="sertifikat-modal"
                                         data-modal-toggle="sertifikat-modal" data-event-id="{{ $event->id }}"
                                         data-response-id="{{ $response->id }}"
                                         class="text-orange-600 btn-get-surat-pendukung bg-white hover:bg-gray-50 border border-orange-600 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-xs px-4 py-2.5">
-                                        <i class="fa-regular fa-arrow-up-from-bracket mr-1"></i> Kirim E-Sertifikat
+                                        <i class="fa-solid fa-arrow-up-from-bracket mr-1"></i> Kirim E-Sertifikat
                                     </button>
                                     <button type="button" data-response-id="{{ $response->id }}"
                                         class="btn-delete text-red-600 btn-get-surat-pendukung bg-white hover:bg-red-600 hover:text-white border border-red-600 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-xs px-4 py-2.5">
-                                        <i class="fa-regular fa-trash mr-1"></i> Hapus Peserta
+                                        <i class="fa-solid fa-trash mr-1"></i> Hapus Peserta
                                     </button>
                                 </div>
                             </td>
@@ -282,7 +282,7 @@
                         <div class="flex justify-end mt-5">
                             <button type="submit"
                                 class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5">
-                                <i class="fa-regular fa-paper-plane mr-1"></i>
+                                <i class="fa-solid fa-paper-plane mr-1"></i>
                                 Kirim
                             </button>
                         </div>

@@ -142,7 +142,7 @@
                         placeholder="Harga" required />
                 </div>
                 <button type="button" class="btn-delete-scheme bg-red-500 hover:bg-red-600 text-white px-4 rounded-lg">
-                    <i class="fa-regular fa-trash"></i>
+                    <i class="fa-solid fa-trash"></i>
                 </button>
             </div>
             `;

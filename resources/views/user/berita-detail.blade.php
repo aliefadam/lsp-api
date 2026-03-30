@@ -7,11 +7,11 @@
                 <h1 class="text-2xl poppins-bold">{{ $berita->title }}</h1>
                 <div class="flex items-center gap-3 mt-3">
                     <span class="text-sm text-gray-700">
-                        <i class="fa-regular fa-calendar mr-1"></i>
+                        <i class="fa-solid fa-calendar mr-1"></i>
                         {{ $berita->created_at->translatedFormat('l, d-m-Y') }}
                     </span>
                     <span class="text-sm text-gray-700">
-                        <i class="fa-regular fa-eye mr-1"></i>
+                        <i class="fa-solid fa-eye mr-1"></i>
                         {{ $berita->views }}
                     </span>
                 </div>
@@ -52,11 +52,11 @@
                                 </h1>
                                 <div class="flex items-center gap-3 mt-2">
                                     <span class="text-sm text-gray-700">
-                                        <i class="fa-regular fa-calendar mr-1"></i>
+                                        <i class="fa-solid fa-calendar mr-1"></i>
                                         {{ $berita->created_at->translatedFormat('l, d-m-Y') }}
                                     </span>
                                     <span class="text-sm text-gray-700">
-                                        <i class="fa-regular fa-eye mr-1"></i>
+                                        <i class="fa-solid fa-eye mr-1"></i>
                                         {{ $berita->views }}
                                     </span>
                                 </div>

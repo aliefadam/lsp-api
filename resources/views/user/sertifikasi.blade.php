@@ -20,7 +20,7 @@
                         <a href="{{ route('sertifikasi.detail', ['slug' => $scheme->slug]) }}"
                             class="block mt-5 text-sm text-orange-700">
                             Lihat Detail
-                            <i class="fa-regular fa-arrow-right"></i>
+                            <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>

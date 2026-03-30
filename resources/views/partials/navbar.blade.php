@@ -6,18 +6,18 @@
     <div class="flex items-center gap-5">
         <div class="flex items-center gap-8">
             <a href="{{ route('home') }}" class="{{ Route::is('home') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-house mr-1"></i>
+                <i class="fa-solid fa-house mr-1"></i>
                 Beranda
             </a>
             <a href="{{ route('informasi') }}"
                 class="flex items-center gap-2 {{ Route::is('informasi') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-circle-info"></i>
+                <i class="fa-solid fa-circle-info"></i>
                 Informasi
             </a>
 
             <a href="javascript:void(0)" id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                 class="flex items-center gap-2 {{ Route::is('sertifikasi') || Route::is('sertifikasi.*') || Route::is('jadwal') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-award"></i>
+                <i class="fa-solid fa-award"></i>
                 Sertifikasi
                 <i class="fa-solid fa-caret-down"></i>
             </a>
@@ -40,12 +40,12 @@
 
             <a href="{{ route('galeri') }}"
                 class="flex items-center gap-2 {{ Route::is('galeri') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-image"></i>
+                <i class="fa-solid fa-image"></i>
                 Galeri
             </a>
             <a href="{{ route('berita') }}"
                 class="flex items-center gap-2 {{ Route::is('berita') || Route::is('berita.*') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-newspaper"></i>
+                <i class="fa-solid fa-newspaper"></i>
                 Berita
             </a>
             <a href="{{ route('pendaftaran.create') }}"
@@ -54,13 +54,13 @@
             </a>
             {{-- <a href="{{ route('berita') }}"
                 class="flex items-center gap-2 {{ Route::is('berita') ? 'text-orange-600' : 'text-black' }}">
-                <i class="fa-regular fa-newspaper"></i>
+                <i class="fa-solid fa-newspaper"></i>
                 Berita
             </a> --}}
         </div>
         {{-- <div class="flex items-center gap-5">
             <a href="" class="text-sms">
-                <i class="fa-regular fa-right-to-bracket mr-1"></i>
+                <i class="fa-solid fa-right-to-bracket mr-1"></i>
                 Masuk
             </a>
             <a href="" class="bg-orange-600 py-2.5 px-4 text-white text-sm rounded-md">
