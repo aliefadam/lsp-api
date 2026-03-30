@@ -222,6 +222,7 @@
                     <div class="size-10 flex justify-center items-center bg-emerald-100 text-emerald-500 rounded-md">
                         <i class="fa-solid fa-thumbs-up"></i>
                     </div>
+                    <h1 class="poppins-medium text-lg mt-3">Misi</h1>
                     <div class="ckeditor mt-2 text-gray-700">
                         {!! $visi_misi->misi !!}
                     </div>
