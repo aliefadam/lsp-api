@@ -210,21 +210,26 @@
                 kompetensi profesional</p>
             <div class="mt-10 grid grid-cols-3 gap-5">
                 <div class="p-8 bg-white shadow-sm rounded-sm">
-                    <i class="fa-solid fa-eye p-4 bg-blue-100 text-blue-500 rounded-md"></i>
+                    <div class="size-10 flex justify-center items-center bg-blue-100 text-blue-500 rounded-md">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
                     <h1 class="poppins-medium text-lg mt-3">Visi</h1>
                     <div class="mt-2 text-gray-700 text-justify ckeditor">
                         {!! $visi_misi->visi !!}
                     </div>
                 </div>
                 <div class="p-8 bg-white shadow-sm rounded-sm">
-                    <i class="fa-solid fa-thumbs-up p-4 bg-emerald-100 text-emerald-500 rounded-md"></i>
-                    <h1 class="poppins-medium text-lg mt-3">Misi</h1>
+                    <div class="size-10 flex justify-center items-center bg-emerald-100 text-emerald-500 rounded-md">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </div>
                     <div class="ckeditor mt-2 text-gray-700">
                         {!! $visi_misi->misi !!}
                     </div>
                 </div>
                 <div class="p-8 bg-white shadow-sm rounded-sm">
-                    <i class="fa-solid fa-bullseye-arrow p-4 bg-purple-100 text-purple-500 rounded-md"></i>
+                    <div class="size-10 flex justify-center items-center bg-purple-100 text-purple-500 rounded-md">
+                        <i class="fa-solid fa-arrows-to-dot"></i>
+                    </div>
                     <h1 class="poppins-medium text-lg mt-3">Sasaran</h1>
                     <div class="ckeditor mt-2 text-gray-700">
                         {!! $visi_misi->target !!}
