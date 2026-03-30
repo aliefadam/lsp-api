@@ -22,9 +22,9 @@
                 <div class="ckeditor mt-5">
                     {!! $berita->body !!}
                 </div>
-                <div class="mt-5">
+                {{-- <div class="mt-5">
                     <img class="rounded-md shadow-md" src="/uploads/flyer/{{ $berita->flyer }}" alt="">
-                </div>
+                </div> --}}
                 <div class="">
                     <h1 class="text-base poppins-medium text-orange-500">Flyer</h1>
                     <div class="p-4 bg-red-600 text-white rounded-md mb-3 flex gap-5 text-sm mt-3 w-fit">
