@@ -18,7 +18,9 @@ use App\Http\Controllers\SuratPendukungController;
 use App\Http\Controllers\SusunanPengurusController;
 use App\Http\Controllers\TUKController;
 use App\Http\Controllers\VisiMisiController;
+use App\Mail\SendNotification;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/", [PageController::class, "index"])->name("home");
