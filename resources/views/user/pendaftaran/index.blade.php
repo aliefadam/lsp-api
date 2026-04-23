@@ -3,7 +3,7 @@
 @section('content')
     <form action="" class="my-10" enctype="multipart/form-data" method="POST">
         <div class="w-[70%] mt-10 mb-5 mx-auto rounded-md shadow-md">
-            <img src="/imgs/header-example.png" class="rounded-md w-full object-cover" alt="">
+            <img src="{{ $headerImage }}" class="rounded-md w-full object-cover" alt="">
         </div>
         <div class="p-10 bg-white w-[70%] rounded-md shadow-md mx-auto mb-5 space-y-5">
             <div>
@@ -29,7 +29,33 @@
             </div>
         </div>
         <div class="p-10 bg-white w-[70%] rounded-md shadow-md mx-auto mb-5 space-y-5">
+            <div>
+                <label class="block mb-2 text-sm font-medium text-orange-600">
+                    Proses Uji <span class="text-red-600">*</span>
+                </label>
+                <div class="grid grid-cols-2 gap-5">
+                    <div class="flex items-center ps-4 border bg-gray-50 border-gray-300 rounded-md">
+                        <input id="proses-uji-1" type="radio" value="Uji Langsung ( Tidak Berpengalaman )"
+                            name="proses_uji" required @checked(old('proses_uji') === 'Uji Langsung ( Tidak Berpengalaman )')
+                            class="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                        <label for="proses-uji-1" class="w-full py-2.5 ms-2 text-sm text-gray-700">
+                            Uji Langsung ( Tidak Berpengalaman)
+                        </label>
+                    </div>
+                    <div class="flex items-center ps-4 border bg-gray-50 border-gray-300 rounded-md">
+                        <input id="proses-uji-2" type="radio" value="Uji Portofolio ( Berpengalaman )" name="proses_uji"
+                            required @checked(old('proses_uji') === 'Uji Portofolio ( Berpengalaman )')
+                            class="w-4 h-4 text-orange-600 bg-gray-100 border-gray-300 focus:ring-orange-500">
+                        <label for="proses-uji-2" class="w-full py-2.5 ms-2 text-sm text-gray-700">
+                            Uji Portofolio ( Berpengalaman )
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p-10 bg-white w-[70%] rounded-md shadow-md mx-auto mb-5 space-y-5">
             @csrf
+
             <div class="grid grid-cols-2 gap-5">
                 <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-orange-600">

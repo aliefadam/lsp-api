@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\SendNotification;
 use App\Models\Event;
 use App\Models\EventResponse;
+use App\Models\PendaftaranHeader;
 use App\Models\Schedule;
 use App\Models\Scheme;
 use App\Models\SuratPendukung;
@@ -21,7 +22,64 @@ class EventController extends Controller
         return view('admin.event.index', [
             "title" => "Acara",
             "events" => Event::all(),
+            "pendaftaranHeader" => PendaftaranHeader::first(),
         ]);
+    }
+
+    public function update_header_image(Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            $request->validate([
+                "image" => "required|image|mimes:jpg,jpeg,png,webp|max:5120",
+            ]);
+
+            $header = PendaftaranHeader::first();
+            $file = $request->file("image");
+
+            $uploadDir = public_path("uploads/pendaftaran-header/");
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $fileName = "PENDAFTARAN_HEADER_" . date("YmdHis") . "." . $file->extension();
+            $file->move($uploadDir, $fileName);
+            $imagePath = "/uploads/pendaftaran-header/{$fileName}";
+
+            if ($header) {
+                if (
+                    $header->image &&
+                    str_starts_with($header->image, "/uploads/pendaftaran-header/")
+                ) {
+                    $oldFilePath = public_path(ltrim($header->image, "/"));
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                $header->update([
+                    "image" => $imagePath,
+                ]);
+            } else {
+                PendaftaranHeader::create([
+                    "image" => $imagePath,
+                ]);
+            }
+
+            DB::commit();
+            return redirect()->back()->with("notification", [
+                "icon" => "success",
+                "title" => "Berhasil",
+                "text" => "Gambar header pendaftaran berhasil diubah",
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with("notification", [
+                "icon" => "error",
+                "title" => "Gagal",
+                "text" => $e->getMessage(),
+            ]);
+        }
     }
 
     public function create()

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Event;
 use App\Models\EventResponse;
+use App\Models\PendaftaranHeader;
 use App\Models\Schedule;
 use App\Models\Scheme;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class EventResponseController extends Controller
         return view('user.pendaftaran.index', [
             "title" => "Pendaftaran",
             "schemes" => Scheme::all(),
+            "headerImage" => PendaftaranHeader::first()?->image ?? "/imgs/header-example.png",
             // "schedules" => Schedule::all(),
         ]);
     }
@@ -59,6 +61,7 @@ class EventResponseController extends Controller
                 'pendidikan' => $request->pendidikan,
                 'jurusan' => $request->jurusan,
                 'skema' => $request->skema,
+                'proses_uji' => $request->proses_uji,
                 'kepesertaan' => $request->kepesertaan,
                 'instansi_pengusul' => $request->instansi_pengusul,
                 'scan_ktp' => $fileNameKTP,

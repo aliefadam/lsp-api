@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             ScheduleSeeder::class,
             ContactSeeder::class,
+            PendaftaranHeaderSeeder::class,
             // EventResponseSeeder::class,
         ]);
     }
