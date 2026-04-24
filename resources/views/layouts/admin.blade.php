@@ -20,6 +20,15 @@
         {{-- Font Awesome --}}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
+        {{-- Template --}}
+        <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet" />
+        <script
+            src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1">
+        </script>
+        <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000"
+            data-border-radius="small"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+
         {{-- Sweetalert --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -32,13 +41,14 @@
         {{-- Select2 --}}
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
+        {{-- CKEDITOR --}}
+        <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.2.0/ckeditor5.css" />
+
         {{-- Flowbite --}}
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @endif
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
     <body class="bg-gray-50">
@@ -62,44 +72,68 @@
         {{-- Flowbite --}}
         <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
         <script>
-            if (document.querySelector('#data-table')) {
-                let table = new DataTable('#data-table');
-
-                $(document).on("click", ".dt-paging-button", function() {
-                    initFlowbite();
-                });
-                $(document).on("change", "#dt-search-0", function() {
-                    initFlowbite();
-                });
-            }
-
+            let table = new DataTable('#data-table');
+            $(document).on("click", ".dt-paging-button", function() {
+                initFlowbite();
+            })
+            $(document).on("change", "#dt-search-0", function() {
+                initFlowbite();
+            })
             $(document).ready(function() {
-                if ($('.select-2-dropdown').length) {
-                    $('.select-2-dropdown').select2();
-                }
+                $('.select-2-dropdown').select2();
             });
         </script>
 
         <script>
-            const toggleSidebarButton = document.getElementById("toggleSidebarMobile");
-            const sidebar = document.getElementById("sidebar");
-
-            if (toggleSidebarButton && sidebar) {
-                toggleSidebarButton.addEventListener("click", function() {
-                    sidebar.classList.toggle("-translate-x-full");
+            document
+                .getElementById("toggleSidebarMobile")
+                .addEventListener("click", function() {
+                    document
+                        .getElementById("sidebar")
+                        .classList.toggle("-translate-x-full");
                 });
-            }
         </script>
 
         {{-- CKEDITOR --}}
+        <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
         <script>
-            const hasCkeditorElement = document.querySelector('#ckeditor') || document.querySelector('.ckeditor');
+            ClassicEditor
+                .create(document.querySelector('#ckeditor'), {
+                    plugin: [
+                        "SimpleUploadAdapter", "ImageUploadAdapter", "ImageUploadAdapter"
+                    ],
+                    toolbar: [
+                        "undo",
+                        "redo",
+                        "|",
+                        "heading",
+                        "|",
+                        "bold",
+                        "italic",
+                        "underline",
+                        "|",
+                        "link",
+                        "bulletedList",
+                        "numberedList",
+                        "|",
+                        "alignment:left",
+                        "alignment:center",
+                        "alignment:right",
+                        "alignment:justify",
+                        "|",
+                        "uploadImage",
+                    ],
+                    createUploadAdapter: function(editor) {
+                        console.log(editor);
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
 
-            if (hasCkeditorElement) {
-                const script = document.createElement('script');
-                script.src = "https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js";
-                script.onload = function() {
-                    const toolbar = [
+            ClassicEditor
+                .create(document.querySelector('.ckeditor'), {
+                    toolbar: [
                         "undo",
                         "redo",
                         "|",
@@ -118,33 +152,11 @@
                         "alignment:right",
                         "alignment:justify",
                         "uploadImage",
-                    ];
-
-                    const primaryEditor = document.querySelector('#ckeditor');
-                    const secondaryEditor = document.querySelector('.ckeditor');
-
-                    if (primaryEditor) {
-                        ClassicEditor.create(primaryEditor, {
-                            plugin: [
-                                "SimpleUploadAdapter", "ImageUploadAdapter", "ImageUploadAdapter"
-                            ],
-                            toolbar,
-                        }).catch(function(error) {
-                            console.error(error);
-                        });
-                    }
-
-                    if (secondaryEditor && secondaryEditor !== primaryEditor) {
-                        ClassicEditor.create(secondaryEditor, {
-                            toolbar,
-                        }).catch(function(error) {
-                            console.error(error);
-                        });
-                    }
-                };
-
-                document.body.appendChild(script);
-            }
+                    ],
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         </script>
 
         @yield('script')

@@ -8,15 +8,10 @@ use Illuminate\Support\Facades\Auth;
 if (!function_exists("getMenuSidebar")) {
     function getMenuSidebar()
     {
-        if (!Auth::check()) {
-            return collect();
+        return Menu::where("role", "admin")->get();
+        if (Auth::check()) {
         }
-
-        return cache()->remember("menu_sidebar_admin", now()->addMinutes(10), function () {
-            return Menu::where("role", "admin")
-                ->with("menuDetails")
-                ->get();
-        });
+        return;
     }
 }
 
