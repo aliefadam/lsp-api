@@ -66,6 +66,36 @@
         </span>
     </div>
     <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Pekerjaan</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right">
+            {{ $participant->pekerjaan ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Pangkat/Golongan</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right">
+            {{ $participant->pangkat_golongan ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Alamat Rumah</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right whitespace-pre-line">
+            {{ $participant->alamat_rumah ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Alamat Instansi</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right whitespace-pre-line">
+            {{ $participant->alamat_instansi ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Tujuan Mengikuti Sertifikasi</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right whitespace-pre-line">
+            {{ $participant->tujuan_sertifikasi ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
         <span class="lg:text-sm text-xs">Pilihan Skema Sertifikasi</span>
         <span class="lg:text-sm text-xs text-gray-600 text-right">
             {{ $participant->scheme->name }}

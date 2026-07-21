@@ -10,6 +10,7 @@ use App\Models\Schedule;
 use App\Models\Scheme;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class EventResponseController extends Controller
 {
@@ -29,6 +30,21 @@ class EventResponseController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'pekerjaan' => ['required', 'string', 'max:255'],
+            'pangkat_golongan' => [
+                'nullable',
+                'string',
+                'max:255',
+                Rule::requiredIf(fn () => preg_match('/\b(ASN|PNS)\b/i', $request->pekerjaan ?? '') === 1),
+            ],
+            'alamat_rumah' => ['required', 'string'],
+            'alamat_instansi' => ['required', 'string'],
+            'tujuan_sertifikasi' => ['required', 'string'],
+        ], [
+            'pangkat_golongan.required' => 'Pangkat/golongan wajib diisi untuk ASN.',
+        ]);
+
         DB::beginTransaction();
         try {
             $file = $request->file("scan_ktp");
@@ -69,6 +85,11 @@ class EventResponseController extends Controller
                 'surat_usulan_institusi' => $fileNameSuratUsulan,
                 'keanggotaan_iapa' => $request->keanggotaan_iapa,
                 'no_anggota_iapa' => $request->no_anggota_iapa,
+                'pekerjaan' => $validated['pekerjaan'],
+                'pangkat_golongan' => $validated['pangkat_golongan'] ?? null,
+                'alamat_rumah' => $validated['alamat_rumah'],
+                'alamat_instansi' => $validated['alamat_instansi'],
+                'tujuan_sertifikasi' => $validated['tujuan_sertifikasi'],
             ]);
             DB::commit();
             $event = Event::find($request->schedule_id);
