@@ -72,6 +72,12 @@
         </span>
     </div>
     <div class="grid grid-cols-2 border-b border-dashed pb-3">
+        <span class="lg:text-sm text-xs">Jabatan</span>
+        <span class="lg:text-sm text-xs text-gray-600 text-right">
+            {{ $participant->jabatan ?? '-' }}
+        </span>
+    </div>
+    <div class="grid grid-cols-2 border-b border-dashed pb-3">
         <span class="lg:text-sm text-xs">Pangkat/Golongan</span>
         <span class="lg:text-sm text-xs text-gray-600 text-right">
             {{ $participant->pangkat_golongan ?? '-' }}

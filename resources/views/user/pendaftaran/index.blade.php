@@ -159,7 +159,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 placeholder:text-gray-500">
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                     <label for="pekerjaan" class="block mb-2 text-sm font-medium text-orange-600">
                         Pekerjaan <span class="text-red-600">*</span>
@@ -168,15 +168,22 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 placeholder:text-gray-500">
                 </div>
                 <div>
-                    <label for="pangkat_golongan" class="block mb-2 text-sm font-medium text-orange-600">
-                        Pangkat/golongan <span class="text-xs text-gray-500">(ASN wajib mengisi)</span>
+                    <label for="jabatan" class="block mb-2 text-sm font-medium text-orange-600">
+                        Jabatan <span class="text-red-600">*</span>
                     </label>
-                    <input type="text" id="pangkat_golongan" name="pangkat_golongan"
-                        value="{{ old('pangkat_golongan') }}"
+                    <input type="text" id="jabatan" name="jabatan" value="{{ old('jabatan') }}" required
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 placeholder:text-gray-500">
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-5">
+            <div>
+                <label for="pangkat_golongan" class="block mb-2 text-sm font-medium text-orange-600">
+                    Pangkat/golongan <span class="text-xs text-gray-500">(ASN wajib mengisi)</span>
+                </label>
+                <input type="text" id="pangkat_golongan" name="pangkat_golongan"
+                    value="{{ old('pangkat_golongan') }}"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full px-3 p-2.5 placeholder:text-gray-500">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                     <label for="alamat_rumah" class="block mb-2 text-sm font-medium text-orange-600">
                         Alamat Rumah <span class="text-red-600">*</span>

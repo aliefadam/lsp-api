@@ -32,6 +32,7 @@ class EventResponseController extends Controller
     {
         $validated = $request->validate([
             'pekerjaan' => ['required', 'string', 'max:255'],
+            'jabatan' => ['required', 'string', 'max:255'],
             'pangkat_golongan' => [
                 'nullable',
                 'string',
@@ -86,6 +87,7 @@ class EventResponseController extends Controller
                 'keanggotaan_iapa' => $request->keanggotaan_iapa,
                 'no_anggota_iapa' => $request->no_anggota_iapa,
                 'pekerjaan' => $validated['pekerjaan'],
+                'jabatan' => $validated['jabatan'],
                 'pangkat_golongan' => $validated['pangkat_golongan'] ?? null,
                 'alamat_rumah' => $validated['alamat_rumah'],
                 'alamat_instansi' => $validated['alamat_instansi'],
