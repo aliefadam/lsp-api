@@ -8,6 +8,7 @@ use App\Models\EventResponse;
 use App\Models\PendaftaranHeader;
 use App\Models\Schedule;
 use App\Models\Scheme;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -31,6 +32,14 @@ class EventResponseController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'schedule_id' => ['required', 'exists:events,id'],
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('event_responses', 'email')
+                    ->where(fn ($query) => $query->where('event_id', $request->schedule_id)),
+            ],
             'pekerjaan' => ['required', 'string', 'max:255'],
             'jabatan' => ['required', 'string', 'max:255'],
             'pangkat_golongan' => [
@@ -43,6 +52,7 @@ class EventResponseController extends Controller
             'alamat_instansi' => ['required', 'string'],
             'tujuan_sertifikasi' => ['required', 'string'],
         ], [
+            'email.unique' => 'Email ini sudah terdaftar pada jadwal yang dipilih.',
             'pangkat_golongan.required' => 'Pangkat/golongan wajib diisi untuk ASN.',
         ]);
 
@@ -96,12 +106,27 @@ class EventResponseController extends Controller
             DB::commit();
             $event = Event::find($request->schedule_id);
             return redirect()->route("pendaftaran.done", $event->slug);
-        } catch (\Exception $e) {
+        } catch (QueryException $e) {
             DB::rollBack();
+            report($e);
+
+            $isDuplicateEntry = ($e->errorInfo[1] ?? null) === 1062;
+
             return redirect()->back()->withInput()->with("notification", [
                 "icon" => "error",
                 "title" => "Gagal",
-                "text" => $e->getMessage(),
+                "text" => $isDuplicateEntry
+                    ? "Email ini sudah terdaftar pada jadwal yang dipilih."
+                    : "Pendaftaran gagal disimpan. Silakan coba kembali.",
+            ]);
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            report($e);
+
+            return redirect()->back()->withInput()->with("notification", [
+                "icon" => "error",
+                "title" => "Gagal",
+                "text" => "Pendaftaran gagal disimpan. Silakan coba kembali.",
             ]);
         }
     }
