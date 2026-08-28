@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EventParticipantsExport;
 use App\Mail\SendNotification;
 use App\Models\Event;
 use App\Models\EventResponse;
@@ -14,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class EventController extends Controller
 {
@@ -135,6 +137,21 @@ class EventController extends Controller
             "title" => $event->name,
             "event" => $event,
             "schedules" => Schedule::where('event_id', $event->id)->get()
+        ]);
+    }
+
+    public function exportParticipants($id, EventParticipantsExport $export)
+    {
+        $event = Event::findOrFail($id);
+        $spreadsheet = $export->make($event);
+        $filename = 'peserta-'.$event->slug.'-'.now()->format('Ymd-His').'.xlsx';
+
+        return response()->streamDownload(function () use ($spreadsheet) {
+            (new Xlsx($spreadsheet))->save('php://output');
+            $spreadsheet->disconnectWorksheets();
+        }, $filename, [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'Cache-Control' => 'max-age=0, no-cache, no-store, must-revalidate',
         ]);
     }
 

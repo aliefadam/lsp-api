@@ -108,11 +108,18 @@
         <div class="relative overflow-x-auto rounded-md bg-white shadow-md">
             <div class="flex justify-between mx-5 my-5">
                 <h1 class="text-base poppins-medium text-orange-500">{{ $event->response->count() }} Peserta Terdaftar</h1>
-                <button type="button" data-modal-target="pengumuman-modal" data-modal-toggle="pengumuman-modal"
-                    class="text-blue-800 h-fit bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">
-                    <i class="fa-solid fa-bullhorn mr-1"></i>
-                    Kirim Pengumuman
-                </button>
+                <div class="flex items-center gap-3">
+                    <a href="{{ route('admin.event.export-participants', $event->id) }}"
+                        class="text-green-700 h-fit bg-white border border-green-600 focus:outline-none hover:bg-green-50 focus:ring-4 focus:ring-green-100 font-medium rounded-lg text-sm px-5 py-2.5">
+                        <i class="fa-solid fa-file-excel mr-1"></i>
+                        Export Excel
+                    </a>
+                    <button type="button" data-modal-target="pengumuman-modal" data-modal-toggle="pengumuman-modal"
+                        class="text-blue-800 h-fit bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5">
+                        <i class="fa-solid fa-bullhorn mr-1"></i>
+                        Kirim Pengumuman
+                    </button>
+                </div>
             </div>
             <table id="data-table" class="w-full text-sm text-left rtl:text-right text-gray-700">
                 <thead class="text-xs text-orange-600 uppercase bg-white">

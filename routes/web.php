@@ -136,6 +136,7 @@ Route::middleware("auth")->group(function () {
             Route::post("/store", [EventController::class, "store"])->name("admin.event.store");
             Route::put("/update-header-image", [EventController::class, "update_header_image"])->name("admin.event.update-header-image");
             Route::get("/show/{id}", [EventController::class, "show"])->name("admin.event.show");
+            Route::get("/show/{id}/export-participants", [EventController::class, "exportParticipants"])->name("admin.event.export-participants");
             Route::get("/edit/{id}", [EventController::class, "edit"])->name("admin.event.edit");
             Route::get("/edit-status/{id}", [EventController::class, "edit_status"])->name("admin.event.edit-status");
             Route::put("/update/{id}", [EventController::class, "update"])->name("admin.event.update");
