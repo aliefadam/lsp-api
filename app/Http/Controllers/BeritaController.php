@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -26,6 +27,10 @@ class BeritaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            "publish_date" => ["nullable", "date"],
+        ]);
+
         DB::beginTransaction();
         try {
 
@@ -47,6 +52,9 @@ class BeritaController extends Controller
                 "body" => $request->body,
                 "flyer" => $fileName,
                 "thumbnail" => $fileNameThumbnail,
+                "created_at" => $request->filled("publish_date")
+                    ? Carbon::parse($request->publish_date)->startOfDay()
+                    : now(),
             ]);
             DB::commit();
 
@@ -75,6 +83,10 @@ class BeritaController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            "publish_date" => ["required", "date"],
+        ]);
+
         DB::beginTransaction();
         try {
             $berita = Berita::find($id);
@@ -82,6 +94,7 @@ class BeritaController extends Controller
                 "title" => $request->title,
                 "slug" => Str::slug($request->title),
                 "body" => $request->body,
+                "created_at" => Carbon::parse($request->publish_date)->startOfDay(),
             ];
 
             if ($request->hasFile("flyer")) {

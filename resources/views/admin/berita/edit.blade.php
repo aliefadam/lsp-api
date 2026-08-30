@@ -33,6 +33,18 @@
                         placeholder="">{{ $berita->body }}</textarea>
                 </div>
                 <div class="mb-5">
+                    <label for="publish_date" class="block mb-2 text-sm font-medium text-gray-900">
+                        Tanggal Publish
+                    </label>
+                    <input type="date" id="publish_date" name="publish_date"
+                        value="{{ old('publish_date', $berita->created_at->format('Y-m-d')) }}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"
+                        required />
+                    @error('publish_date')
+                        <p class="mt-1 text-xs text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-5">
                     <label class="block mb-2 text-sm font-medium text-gray-900" for="image">
                         Flyer <span class="text-xs text-gray-600 ms-1">(Jika tidak butuh tidak perlu mengisi)</span>
                     </label>

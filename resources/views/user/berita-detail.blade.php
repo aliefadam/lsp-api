@@ -1,5 +1,35 @@
 @extends('layouts.user')
 
+@section('page_title'){{ $berita->title }} - LSP API@endsection
+
+@section('meta')
+    @php
+        $detailUrl = route('berita.detail', $berita->slug);
+        $thumbnailUrl = secure_asset('uploads/thumbnail/' . $berita->thumbnail);
+        $description = Str::limit(trim(strip_tags($berita->body ?? '')), 160);
+    @endphp
+
+    <meta name="description" content="{{ $description }}">
+    <link rel="canonical" href="{{ $detailUrl }}">
+
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="LSP API">
+    <meta property="og:title" content="{{ $berita->title }}">
+    <meta property="og:description" content="{{ $description }}">
+    <meta property="og:url" content="{{ $detailUrl }}">
+    <meta property="og:image" content="{{ $thumbnailUrl }}">
+    <meta property="og:image:secure_url" content="{{ $thumbnailUrl }}">
+    <meta property="og:image:alt" content="Thumbnail {{ $berita->title }}">
+    <meta property="article:published_time" content="{{ $berita->created_at->toIso8601String() }}">
+    <meta property="article:modified_time" content="{{ $berita->updated_at->toIso8601String() }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $berita->title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    <meta name="twitter:image" content="{{ $thumbnailUrl }}">
+@endsection
+
 @section('content')
     <main class="px-10 py-10 min-h-dvh">
         <div class="grid grid-cols-3 gap-10">
