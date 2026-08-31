@@ -21,8 +21,9 @@
     <meta property="og:description" content="{{ $description }}">
     <meta property="og:url" content="{{ $detailUrl }}">
     <meta property="og:image" content="{{ $thumbnailUrl }}">
-    {{-- <meta property="og:image:secure_url" content="{{ $thumbnailUrl }}">
-    <meta property="og:image:alt" content="Thumbnail {{ $berita->title }}"> --}}
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <meta property="article:published_time" content="{{ $berita->created_at->toIso8601String() }}">
     <meta property="article:modified_time" content="{{ $berita->updated_at->toIso8601String() }}">
 
